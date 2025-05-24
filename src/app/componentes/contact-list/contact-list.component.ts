@@ -10,11 +10,18 @@ import { ContactService } from '../../servicios/contact.service';
 })
 export default class ContactListComponent implements OnInit {
 
+
+
   //inyeccion de dependencia
   private contactService = inject(ContactService);
 
+  contacts: any[] = [];
+
   ngOnInit(): void {
-    this.contactService.list().subscribe(contact => console.log(contact));
+    this.contactService.list()
+    .subscribe((contact: any) => {
+      this.contacts = contact;
+    });
   }
 
 }
