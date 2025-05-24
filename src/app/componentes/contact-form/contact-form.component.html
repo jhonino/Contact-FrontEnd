@@ -1,15 +1,20 @@
 <h2 class="mb-5">Nuevo Contacto</h2>
 
 <div class="row row-cols-3 justify-content-center">
-    <form>
+    <form [formGroup]="form" (ngSubmit)="create()">
+
         <div class="mb-3">
             <label for="name">Nombre</label>
-            <input id="name" type="text" placeholder="Nombre" class="form-control">            
+            <input id="name" type="text" placeholder="Nombre" class="form-control"
+                formControlName="name">
         </div>
         <div class="mb-3">
-            <label for="email">Nombre</label>
-            <input id="email" type="email" placeholder="Email" class="form-control">            
+            <label for="email">email</label>
+            <input id="email" type="email" placeholder="Email" class="form-control"
+                formControlName="email">              
         </div>
+
+
         <div class="text-end"> 
             <button type="button" class="btn btn-light" routerLink="/">
                 Cancelar

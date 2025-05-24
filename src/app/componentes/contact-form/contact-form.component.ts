@@ -16,4 +16,8 @@ export class ContactFormComponent {
     name: ['', [Validators.required]],
     email: ['', [Validators.required]]
   })
+
+  create() {
+    console.log(this.form.value)
+  }
 }
