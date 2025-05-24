@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ContactService } from '../../servicios/contact.service';
 import { RouterModule } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   //standalone: true,
   selector: 'app-contact-list',
-  imports: [RouterModule],
+  imports: [RouterModule, DatePipe], //el date pipe es para la fecha
   templateUrl: './contact-list.component.html',
   styleUrl: './contact-list.component.css'
 })
