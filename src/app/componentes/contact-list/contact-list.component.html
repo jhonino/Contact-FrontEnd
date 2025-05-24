@@ -1,1 +1,23 @@
-<p>contact-list works!</p>
+<p>Mis Contactos</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Fecha de Creacion</th>
+         </tr>
+    </thead>
+    <tbody>
+        @for (contact of contacts; track contact.id) {
+            <tr>
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.createAt }}</td>
+            </tr>
+        }
+            
+    </tbody>
+</table>
