@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { ContactService } from '../../servicios/contact.service';
 
 @Component({
   standalone: true,
@@ -10,7 +11,11 @@ import { RouterModule } from '@angular/router';
   styleUrl: './contact-form.component.css'
 })
 export class ContactFormComponent {
+
+  //inyectnado dependencias
   private fb = inject(FormBuilder);
+  private router = inject(Router);
+  private contactService = inject(ContactService);
 
   form = this.fb.group({
     name: ['', [Validators.required]],
@@ -19,5 +24,10 @@ export class ContactFormComponent {
 
   create() {
     console.log(this.form.value)
+    const contact = this.form.value;
+    this.contactService.create(contact)
+        .subscribe(() => {
+            this.router.navigate(['/']);
+        })
   }
 }
