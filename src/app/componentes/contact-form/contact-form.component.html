@@ -27,8 +27,11 @@
                 Cancelar
             </button>
             <button class="btn btn-primary ms-2">
-                
-                Crear Contacto
+                @if (contact) {
+                    Actualizar
+                }@else {
+                    Nuevo
+                } Contacto
             </button>
         </div>
     </form>
