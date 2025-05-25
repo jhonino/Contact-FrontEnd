@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ContactService } from '../../servicios/contact.service';
 import { RouterModule } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { Contact } from '../../model/contact.interface';
 
 @Component({
   //standalone: true,
@@ -17,11 +18,11 @@ export default class ContactListComponent implements OnInit {
   //inyeccion de dependencia
   private contactService = inject(ContactService);
 
-  contacts: any[] = [];
+  contacts: Contact[] = [];
 
   ngOnInit(): void {
     this.contactService.list()
-    .subscribe((contacts: any) => {
+    .subscribe(contacts => {
       this.contacts = contacts;
     });
   }
