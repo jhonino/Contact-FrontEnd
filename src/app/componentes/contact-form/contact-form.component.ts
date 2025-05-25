@@ -44,12 +44,20 @@ export class ContactFormComponent implements OnInit {
   }
 
 
-  create() {
-    console.log(this.form!.value) //el formulario va exisitr siempre que ingrese a este fomulario
-    const contact = this.form!.value;
-    this.contactService.create(contact)
+  save() {    
+    console.log(this.form!.value) 
+    const contactForm = this.form!.value; //el formulario va exisitr siempre que ingrese a este fomulario
+    
+    if(this.contact){
+      this.contactService.update(this.contact.id, contactForm)
+      .subscribe(() => {
+        this.router.navigate(['/']);
+      });
+    } else {
+      this.contactService.create(contactForm)
         .subscribe(() => {
             this.router.navigate(['/']);
-        })
+        });
+    }    
   }
 }
