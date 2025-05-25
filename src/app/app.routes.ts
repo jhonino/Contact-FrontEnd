@@ -10,6 +10,10 @@ export const routes: Routes = [
     {
         path: 'new',
         component: ContactFormComponent
+    },
+    {
+        path: ':id/edit',
+        component: ContactFormComponent
     }
 ];
 
