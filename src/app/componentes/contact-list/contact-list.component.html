@@ -24,8 +24,8 @@
                 <td>{{ contact.createAt }}</td>   <!--utiliza el pipe date para la fehca sea mejor-->
                 <td class="text-end">
                     <div class="btn-group">
-                        <button class="btn btn-success" [routerLink]="[contact.id/edit]">Editar</button>
-                        <button class="btn btn-danger">Eliminar</button>
+                        <button class="btn btn-success" [routerLink]="[contact.id, 'edit']">Editar</button>
+                        <button class="btn btn-danger" (click)="deleteContact(contact)">Eliminar</button>
                     </div>
                 </td>
             </tr>
