@@ -18,11 +18,11 @@ export class ContactService {
     return this.http.get<Contact>(`http://localhost:8080/api/contact/${id}`);
   }
 
-  create(contact: any){
+  create(contact: Contact){
     return this.http.post<Contact>('http://localhost:8080/api/contact', contact);
   }
 
-  update(contact: any, id : number){
+  update(id : number, contact: Contact){
     return this.http.put<Contact>(`http://localhost:8080/api/contact/${id}`, contact);
   }
 

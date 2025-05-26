@@ -45,7 +45,7 @@ export class ContactFormComponent implements OnInit {
 
 
   save() {    
-    console.log(this.form!.value) 
+    //console.log(this.form!.value) 
     const contactForm = this.form!.value; //el formulario va exisitr siempre que ingrese a este fomulario
     
     if(this.contact){
